@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RENUKA PowerDig Construction – Nashik's #1 JCB Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F5A623;
+    --orange-dark: #D4881A;
+    --orange-glow: rgba(245,166,35,0.15);
+    --black: #0D0D0D;
+    --dark: #141414;
+    --dark2: #1C1C1C;
+    --dark3: #242424;
+    --text: #E8E8E0;
+    --muted: #888;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245,166,35,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 1.6rem;
+    color: var(--white); letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    position: relative; z-index: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    padding: 10px 24px; border-radius: 100px;
+    background: rgba(0,0,0,1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff; font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.5px; text-decoration: none; white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .nav-cta:active { transform: translateY(1px); }
+
+  /* shimmer spark track */
+  .nav-cta .shimmer-track {
+    position: absolute; inset: 0; z-index: -3;
+    overflow: visible;
+    container-type: size;
+    filter: blur(2px);
+  }
+  .nav-cta .shimmer-slide {
+    position: absolute; inset: 0;
+    width: 100cqh; height: 100cqh;
+    aspect-ratio: 1;
+    animation: shimmer-slide 3s ease-in-out infinite alternate;
+  }
+  .nav-cta .shimmer-spin {
+    position: absolute;
+    inset: -100%;
+    width: auto;
+    background: conic-gradient(from 225deg, transparent 0, #F5A623 90deg, transparent 90deg);
+    animation: spin-around 6s infinite linear;
+  }
+  /* highlight overlay */
+  .nav-cta .shimmer-highlight {
+    position: absolute; inset: 0; border-radius: 100px;
+    box-shadow: inset 0 -8px 10px rgba(255,255,255,0.12);
+    transition: box-shadow 0.3s ease; z-index: 1; pointer-events: none;
+  }
+  .nav-cta:hover .shimmer-highlight { box-shadow: inset 0 -6px 10px rgba(255,255,255,0.25); }
+  .nav-cta:active .shimmer-highlight { box-shadow: inset 0 -10px 10px rgba(255,255,255,0.25); }
+  /* backdrop cuts out the shimmer inside button body */
+  .nav-cta .shimmer-backdrop {
+    position: absolute; z-index: -2;
+    inset: 0.05em; border-radius: 100px;
+    background: #1a1a1a;
+  }
+  .nav-cta .shimmer-label { position: relative; z-index: 2; }
+
+  @keyframes shimmer-slide {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(calc(100cqw - 100%), 0); }
+  }
+  @keyframes spin-around {
+    0%           { transform: translateZ(0) rotate(0deg); }
+    15%, 35%     { transform: translateZ(0) rotate(90deg); }
+    65%, 85%     { transform: translateZ(0) rotate(270deg); }
+    100%         { transform: translateZ(0) rotate(360deg); }
+  }
+
+  .mag-particle { display: none; } /* remove old particles */
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(245,166,35,0.07) 0%, transparent 70%),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(245,166,35,0.03) 80px);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange-glow); border: 1px solid rgba(245,166,35,0.3);
+    padding: 6px 14px; border-radius: 2px; margin-bottom: 24px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--orange); text-transform: uppercase;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--orange); border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.0; letter-spacing: -1px;
+    color: var(--white);
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 .accent {
+    color: var(--orange);
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .hero h1 .line { display: block; }
+
+  .hero-sub {
+    margin-top: 24px; font-size: 1.05rem;
+    color: var(--muted); line-height: 1.7; max-width: 440px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 16px; margin-top: 40px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  /* ── INTERACTIVE HOVER BUTTON (shared) ── */
+  .btn-primary, .btn-ghost {
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 180px; overflow: hidden;
+    border-radius: 100px;
+    padding: 14px 24px;
+    font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; cursor: pointer;
+  }
+
+  .btn-primary {
+    border: 2px solid var(--orange);
+    background: var(--black);
+    color: var(--black);
+  }
+
+  .btn-ghost {
+    border: 2px solid rgba(255,255,255,0.3);
+    background: var(--black);
+    color: var(--white);
+    transition: border-color 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--white); }
+  .btn-ghost.clicked { transform: scale(0.95); }
+
+  .ihb-text {
+    position: relative; z-index: 2;
+    display: inline-block;
+    transform: translateX(4px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+  }
+  .btn-primary .ihb-text { color: var(--orange); }
+  .btn-ghost .ihb-text   { color: var(--white); }
+
+  .ihb-hover {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; z-index: 3;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transform: translateX(56px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-weight: 700; font-size: 0.95rem;
+    white-space: nowrap;
+    color: var(--black);
+  }
+  .ihb-hover svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .ihb-bg {
+    position: absolute;
+    left: 20%; top: 50%;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.35s ease, left 0.35s ease, top 0.35s ease,
+                width 0.35s ease, height 0.35s ease, border-radius 0.35s ease;
+    z-index: 1;
+  }
+  .btn-primary .ihb-bg { background: var(--orange); }
+  .btn-ghost   .ihb-bg { background: var(--white); }
+
+  /* hover states */
+  .btn-primary:hover .ihb-text,
+  .btn-ghost:hover   .ihb-text {
+    transform: translateX(64px);
+    opacity: 0;
+  }
+  .btn-primary:hover .ihb-hover,
+  .btn-ghost:hover   .ihb-hover {
+    transform: translateX(-4px);
+    opacity: 1;
+  }
+  .btn-primary:hover .ihb-bg,
+  .btn-ghost:hover   .ihb-bg {
+    left: 50%; top: 50%;
+    width: 300%; height: 300%;
+    border-radius: 100px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  /* ghost hover text should be dark since bg becomes white */
+  .btn-ghost:hover .ihb-hover { color: var(--black); }
+
+  /* fixed burst particles */
+  .burst-particle {
+    position: fixed;
+    width: 5px; height: 5px; border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    background: var(--orange);
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 56px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 2.2rem; color: var(--white);
+  }
+  .stat-num span { color: var(--orange); }
+  .stat-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    position: relative; animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .jcb-graphic {
+    width: 100%; max-width: 520px;
+    position: relative;
+  }
+
+  .jcb-svg-wrap {
+    position: relative;
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border: 1px solid rgba(245,166,35,0.2);
+    border-radius: 4px;
+    padding: 40px;
+    overflow: hidden;
+  }
+
+  .jcb-svg-wrap::before {
+    content: '';
+    position: absolute; top: -50%; right: -20%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(245,166,35,0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .jcb-icon {
+    font-size: 8rem;width: 400px;
+    max-width: 100%; text-align: center; display: block;
+    filter: drop-shadow(0 0 30px rgba(245,166,35,0.4));
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .jcb-label {
+    text-align: center; margin-top: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;
+    color: var(--orange); text-transform: uppercase;
+  }
+
+  .tag-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; justify-content: center;
+  }
+  .chip {
+    background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.2);
+    padding: 4px 12px; border-radius: 2px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 1px;
+    color: var(--orange); text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── TYPEWRITER ── */
+  .typewriter-cursor {
+    display: inline-block;
+    color: var(--orange);
+    font-weight: 900;
+    animation: blink 0.75s step-start infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* ── MARQUEE STRIP ── */
+  .marquee-strip {
+    background: var(--orange);
+    padding: 12px 0; overflow: hidden;
+    display: flex;
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 18s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 0.95rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--black); padding: 0 32px;
+  }
+  .marquee-dot { color: rgba(0,0,0,0.35); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 48px; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white); line-height: 1.05;
+  }
+  .section-title span { color: var(--orange); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark); }
+  .services-header { margin-bottom: 56px; }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--dark2); padding: 36px 32px;
+    border: 1px solid rgba(255,255,255,0.04);
+    cursor: default;
+    transition: background 0.25s, transform 0.25s;
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover { background: var(--dark3); transform: translateY(-4px); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon { font-size: 2.4rem; margin-bottom: 20px; display: block; }
+
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.25rem; color: var(--white);
+    letter-spacing: 0.5px; margin-bottom: 10px;
+  }
+  .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  .service-rate {
+    margin-top: 20px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.8rem; color: var(--orange); font-weight: 600;
+  }
+
+  /* ── WHY US ── */
+  #why { background: var(--black); }
+
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center; margin-top: 56px;
+  }
+
+  .why-points { display: flex; flex-direction: column; gap: 28px; }
+
+  .why-point {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px; background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 3px solid var(--orange);
+    transition: transform 0.2s;
+  }
+  .why-point:hover { transform: translateX(6px); }
+
+  .why-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 2rem; color: var(--orange);
+    opacity: 0.4; line-height: 1; flex-shrink: 0;
+  }
+  .why-text strong {
+    display: block; font-size: 1rem; color: var(--white);
+    font-weight: 600; margin-bottom: 4px;
+  }
+  .why-text p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+
+  .why-visual {
+    background: var(--dark);
+    border: 1px solid rgba(245,166,35,0.15);
+    padding: 48px; text-align: center;
+  }
+  .big-stat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; color: var(--orange);
+    line-height: 1;
+  }
+  .big-stat .num { font-size: 5rem; display: block; }
+  .big-stat .unit { font-size: 1.4rem; color: var(--muted); }
+  .why-visual-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 28px 0; }
+  .why-visual-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+
+  /* ── BOOKING FORM ── */
+  #book { background: var(--dark); }
+
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; margin-top: 56px; align-items: start;
+  }
+
+  .form-intro p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-top: 16px; }
+
+  .contact-info { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+  .contact-row {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.92rem;
+  }
+  .contact-icon {
+    width: 40px; height: 40px; background: var(--orange-glow);
+    border: 1px solid rgba(245,166,35,0.25); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-detail strong { display: block; color: var(--white); font-size: 0.85rem; }
+  .contact-detail span { color: var(--muted); font-size: 0.82rem; }
+
+  form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+
+  input, select, textarea {
+    width: 100%; background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 2px; padding: 12px 16px;
+    color: var(--white); font-family: 'Barlow', sans-serif;
+    font-size: 0.92rem;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--orange);
+    background: rgba(245,166,35,0.04);
+  }
+  select option { background: var(--dark2); }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .submit-btn {
+    background: var(--orange); color: var(--black);
+    border: none; padding: 15px 32px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.05rem; letter-spacing: 1px;
+    text-transform: uppercase; cursor: pointer; border-radius: 2px;
+    transition: all 0.2s; margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+  .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 1.4rem; color: var(--white);
+  }
+  .footer-logo span { color: var(--orange); }
+  .footer-tagline { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy { font-size: 0.78rem; color: rgba(136,136,136,0.5); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px;
+    background: #25D366; color: white;
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; text-decoration: none; z-index: 999;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 100px; right: 28px;
+    background: var(--dark3); border: 1px solid var(--orange);
+    color: var(--white); padding: 14px 20px;
+    border-radius: 4px; font-size: 0.88rem;
+    transform: translateY(20px); opacity: 0;
+    transition: all 0.3s; z-index: 999;
+    pointer-events: none;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-visual { display: none; }
+    section { padding: 64px 24px; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">RENUKA POWER<span>DIG</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#book">Book Now</a></li>
+  </ul>
+  <a href="#book" class="nav-cta" id="magBtn">
+    <div class="shimmer-track">
+      <div class="shimmer-slide">
+        <div class="shimmer-spin"></div>
+      </div>
+    </div>
+    <div class="shimmer-highlight"></div>
+    <div class="shimmer-backdrop"></div>
+    <span class="shimmer-label">Get a Quote</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📍 Nashik &amp; Surrounding Areas</div>
+    <h1>
+      <span class="line">NASHIK'S</span>
+      <span class="line">JCB <span class="accent"><span id="typewriter-line"></span></span></span>
+      <span class="line">SPECIALISTS</span>
+    </h1>
+    <p class="hero-sub">
+      Fast, reliable excavation and construction equipment services across Nashik. From foundation digging to road work — we show up on time, every time.
+    </p>
+    <div class="hero-buttons">
+      <a href="#book" class="btn-primary">
+        <span class="ihb-bg"></span>
+        <span class="ihb-text">Book a JCB Today</span>
+        <span class="ihb-hover">
+          Book a JCB Today
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+      <a href="tel:+919999999999" class="btn-ghost" id="callBtn">
+        <span class="ihb-bg"></span>
+        <span class="ihb-text">📞 Call Us Now</span>
+        <span class="ihb-hover">
+          📞 Call Us Now
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">24<span>hr</span></div>
+        <div class="stat-label">Response Time</div>
+      </div>
+      <div>
+        <div class="stat-num">7<span>+</span></div>
+        <div class="stat-label">Service Types</div>
+      </div>
+      <div>
+        <div class="stat-num">₹10K</div>
+        <div class="stat-label">Starting / Day</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="jcb-graphic">
+      <div class="jcb-svg-wrap">
+        <!-- <span class="jcb-icon">🚜</span> -->
+        <img src="C:\Users\Sagar\Desktop\JCB\jcb.png" alt="JCB 3DX Backhoe Loader" class="jcb-icon">
+        <div class="jcb-label">JCB 3DX — Nashik Fleet</div>
+        <div class="tag-chips">
+          <span class="chip">Excavation</span>
+          <span class="chip">Loading</span>
+          <span class="chip">Demolition</span>
+          <span class="chip">Trenching</span>
+          <span class="chip">Leveling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Excavation <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Foundation Digging <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Road Construction <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Demolition Support <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Land Leveling <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Drainage & Canal Work <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Material Loading <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Nashik • Sinnar • Igatpuri • Dindori <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Excavation <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Foundation Digging <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Road Construction <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Demolition Support <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Land Leveling <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Drainage & Canal Work <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Material Loading <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Nashik • Sinnar • Igatpuri • Dindori <span class="marquee-dot">◆</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">OUR <span>SERVICES</span></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">⛏️</span>
+      <div class="service-name">Excavation & Earthmoving</div>
+      <div class="service-desc">Large-scale digging, soil removal, and earthmoving for construction sites, plots, and commercial projects.</div>
+      <div class="service-rate">From ₹10,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏗️</span>
+      <div class="service-name">Foundation Digging</div>
+      <div class="service-desc">Precise foundation trenches for residential and commercial buildings. Depth up to 15 feet.</div>
+      <div class="service-rate">From ₹12,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛣️</span>
+      <div class="service-name">Road Construction & Trenching</div>
+      <div class="service-desc">Cutting trenches for pipelines, cables, and road base preparation for private and government projects.</div>
+      <div class="service-rate">From ₹10,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔨</span>
+      <div class="service-name">Demolition Support</div>
+      <div class="service-desc">Old structure demolition, debris removal, and site clearing for new construction.</div>
+      <div class="service-rate">From ₹14,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌾</span>
+      <div class="service-name">Agricultural Land Leveling</div>
+      <div class="service-desc">Farm land leveling, bunding, pond digging, and water channel construction for farmers across Nashik district.</div>
+      <div class="service-rate">From ₹8,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚛</span>
+      <div class="service-name">Material Loading & Handling</div>
+      <div class="service-desc">Loading sand, gravel, soil, and debris into trucks. Available for short-term and contract engagements.</div>
+      <div class="service-rate">From ₹8,000 / day</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💧</span>
+      <div class="service-name">Drainage & Canal Work</div>
+      <div class="service-desc">Drainage channel excavation, stormwater trenches, and canal work for municipalities and builders.</div>
+      <div class="service-rate">From ₹10,000 / day</div>
+    </div>
+    <div class="service-card" style="background: var(--orange-glow); border-color: rgba(245,166,35,0.25);">
+      <span class="service-icon">📞</span>
+      <div class="service-name" style="color: var(--orange);">Not Sure? Call Us</div>
+      <div class="service-desc">Describe your project and we'll give you a custom quote. Hourly rates also available for smaller jobs.</div>
+      <div class="service-rate">Free Consultation</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">BUILT ON <span>TRUST</span></h2>
+  <div class="why-grid">
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <strong>Same-Day Availability</strong>
+          <p>Call before noon, we'll be on your site by end of day. No long waits, no excuses.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <strong>Licensed & Insured Operator</strong>
+          <p>Our operator holds a valid Heavy Equipment License. Machine is fully insured for your peace of mind.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <strong>Transparent Pricing</strong>
+          <p>No hidden charges. You get a clear quote before work starts. Pay only for hours worked.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <strong>Nashik-Based, Always Close</strong>
+          <p>We operate across Nashik city and district — Sinnar, Igatpuri, Dindori, Malegaon, and beyond.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="big-stat">
+        <span class="num">50km</span>
+        <span class="unit">Service Radius</span>
+      </div>
+      <hr class="why-visual-divider">
+      <div class="big-stat">
+        <span class="num">24hr</span>
+        <span class="unit">Booking Response</span>
+      </div>
+      <hr class="why-visual-divider">
+      <div class="big-stat">
+        <span class="num">JCB</span>
+        <span class="unit">3DX Backhoe Loader</span>
+      </div>
+      <hr class="why-visual-divider">
+      <div class="why-visual-label">Serving Nashik Since Day One</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="book">
+  <div class="section-label">Book a JCB</div>
+  <h2 class="section-title">GET A <span>FREE QUOTE</span></h2>
+  <div class="form-grid">
+    <div class="form-intro">
+      <p>Fill in your job details and we'll call you back within a few hours with a quote. You can also WhatsApp or call us directly for urgent jobs.</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail">
+            <strong>+91 99999 99999</strong>
+            <span>Call or WhatsApp — 7 AM to 8 PM</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <strong>Nashik, Maharashtra</strong>
+            <span>Serving 50 km radius — all talukas covered</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">⏱️</div>
+          <div class="contact-detail">
+            <strong>Available 7 Days a Week</strong>
+            <span>Emergency bookings taken on priority</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="bookingForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div>
+          <label>Your Name *</label>
+          <input type="text" placeholder="Vidhyasagar Shrimanwar" required>
+        </div>
+        <div>
+          <label>Phone Number *</label>
+          <input type="tel" placeholder="+91 xxxxx xxxxx" required>
+        </div>
+      </div>
+      <div>
+        <label>Service Required *</label>
+        <select required>
+          <option value="" disabled selected>Select a service...</option>
+          <option>Excavation & Earthmoving</option>
+          <option>Foundation Digging</option>
+          <option>Road Construction & Trenching</option>
+          <option>Demolition Support</option>
+          <option>Agricultural Land Leveling</option>
+          <option>Material Loading & Handling</option>
+          <option>Drainage & Canal Work</option>
+          <option>Other (describe below)</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div>
+          <label>Job Location</label>
+          <input type="text" placeholder="e.g. Satpur, Nashik">
+        </div>
+        <div>
+          <label>Preferred Date</label>
+          <input type="date">
+        </div>
+      </div>
+      <div>
+        <label>Job Description</label>
+        <textarea placeholder="Describe the work: area size, depth needed, any special requirements..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">🚜 Submit Booking Request</button>
+      <p class="form-note">* We'll call you back to confirm details and share the final quote.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">RENUKA POWER<span>DIG</span></div>
+    <div class="footer-tagline">Nashik's Trusted JCB Construction Services</div>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#book">Book Now</a>
+    <a href="tel:+919999999999">Call Us</a>
+  </div>
+  <div class="footer-copy">© 2026 RENUKA PowerDig. Nashik, Maharashtra.</div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/919999999999?text=Hi%2C%20I%20need%20a%20JCB%20booking%20in%20Nashik" class="wa-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- Toast -->
+<div class="toast" id="toast">✅ Request sent! We'll call you back shortly.</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    e.target.reset();
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // ── TYPEWRITER ──
+  const twWords = [
+    "EXCAVATION",
+    "FOUNDATION",
+    "DEMOLITION",
+    "ROAD WORK",
+    "LAND LEVELING",
+    "TRUSTED"
+  ];
+  let twIndex = 0, twChar = 0, twDeleting = false, twEl = document.getElementById('typewriter-line');
+
+  // inject cursor span once — place it right after typewriter text, inside accent span
+  const twParent = twEl.parentElement;
+  const cursorSpan = document.createElement('span');
+  cursorSpan.className = 'typewriter-cursor';
+  cursorSpan.textContent = '_';
+  twParent.appendChild(cursorSpan);
+
+  function typewriterTick() {
+    const word = twWords[twIndex];
+    if (!twDeleting) {
+      twEl.textContent = word.slice(0, ++twChar);
+      if (twChar === word.length) {
+        twDeleting = true;
+        setTimeout(typewriterTick, 1800);
+        return;
+      }
+      setTimeout(typewriterTick, 70);
+    } else {
+      twEl.textContent = word.slice(0, --twChar);
+      if (twChar === 0) {
+        twDeleting = false;
+        twIndex = (twIndex + 1) % twWords.length;
+        setTimeout(typewriterTick, 300);
+        return;
+      }
+      setTimeout(typewriterTick, 35);
+    }
+  }
+  setTimeout(typewriterTick, 800);
+
+  // ── PARTICLE BUTTON (click burst) ──
+  (function() {
+    const btn = document.getElementById('callBtn');
+
+    function spawnBurst() {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const colors = ['#F5A623', '#ffffff', '#FFD580', '#F5A623'];
+      const count = 10;
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'burst-particle';
+        // randomise color
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.left = cx + 'px';
+        p.style.top = cy + 'px';
+        p.style.boxShadow = `0 0 6px 1px ${colors[0]}`;
+        document.body.appendChild(p);
+
+        // random direction
+        const angle = (i / count) * 2 * Math.PI + (Math.random() - 0.5) * 0.8;
+        const dist = 30 + Math.random() * 45;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist - (Math.random() * 20 + 10); // bias upward
+
+        let start = null;
+        const duration = 500 + Math.random() * 200;
+        const delay = i * 60;
+
+        setTimeout(() => {
+          function frame(ts) {
+            if (!start) start = ts;
+            const progress = Math.min((ts - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            p.style.transform = `translate(calc(-50% + ${tx * ease}px), calc(-50% + ${ty * ease}px)) scale(${1 - progress})`;
+            p.style.opacity = 1 - progress;
+            if (progress < 1) requestAnimationFrame(frame);
+            else p.remove();
+          }
+          requestAnimationFrame(frame);
+        }, delay);
+      }
+    }
+
+    btn.addEventListener('click', (e) => {
+      btn.classList.add('clicked');
+      spawnBurst();
+      setTimeout(() => btn.classList.remove('clicked'), 150);
+    });
+
+    // also trigger on touch
+    btn.addEventListener('touchstart', () => {
+      btn.classList.add('clicked');
+      spawnBurst();
+      setTimeout(() => btn.classList.remove('clicked'), 150);
+    }, { passive: true });
+  })();
+
+  // ── ANIMATE ON SCROLL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
